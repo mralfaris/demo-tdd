@@ -1,8 +1,19 @@
-import { render, screen } from '@testing-library/react';
+import React from 'react';
+import { render, screen, waitForElementToBeRemoved } from '@testing-library/react';
 import App from './App';
+import mockData from './mockData';
 
-test('renders learn react link', () => {
+
+beforeEach(() => {
+  fetchMock.once(JSON.stringify(mockData));
+});
+
+describe('<App /> tests', () => {
+  it('renders <App />', () => {
+    render(<App />)});
+});
+
+it('renders <App />', async() => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  await waitForElementToBeRemoved(() => screen.getByText(/loading/i));
 });
