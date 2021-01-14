@@ -3,7 +3,7 @@ import { render, screen, waitForElementToBeRemoved } from '@testing-library/reac
 import App from './App';
 import mockData from './mockData';
 
-
+/*
 beforeEach(() => {
   fetchMock.once(JSON.stringify(mockData));
 });
@@ -12,6 +12,7 @@ describe('<App /> tests', () => {
   it('renders <App />', () => {
     render(<App />)});
 });
+*/
 
 it('renders <App />', async() => {
   render(<App />);
